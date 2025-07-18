@@ -11,13 +11,13 @@
 #include <Math/Vector2Int.h>
 #include <Math/Converter/ImVec.h>
 
-void TransparentMode::ShowSettings()
+void RectangleMode::ShowSettings()
 {
 	ImGui::Checkbox("Keep Aspect Ratio", &m_isKeepAspectRatio);
 	ImGui::Checkbox("Fill Outside", &m_isFillOutside);
 }
 
-void TransparentMode::Show()
+void RectangleMode::Show()
 {
 	auto& style = ImGui::GetStyle();
 	m_backgroundColor = ImGui::GetColorU32(ImGuiCol_WindowBg);
@@ -53,7 +53,7 @@ void TransparentMode::Show()
 }
 
 
-void TransparentMode::DrawOutside()
+void RectangleMode::DrawOutside()
 {
 	auto drawList = ImGui::GetForegroundDrawList();
 	drawList->AddRectFilled(
@@ -81,7 +81,7 @@ void TransparentMode::DrawOutside()
 	);
 }
 
-void TransparentMode::Draw()
+void RectangleMode::Draw()
 {
 	if(m_data.whiteNodes == nullptr)
 		return; // ƒm[ƒh‚ª‚È‚¢ê‡‚Í‰½‚à‚µ‚È‚¢

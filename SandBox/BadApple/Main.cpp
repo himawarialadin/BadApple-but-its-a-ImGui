@@ -59,9 +59,9 @@ private:
 		//Modes
 		m_modeBuilders = 
 		{
-			{ []()-> IMode* { return new ImPlotMode; },				"ImPlot Mode" },
-			{ []()-> IMode* { return new TransparentMode; },		"Transparent Mode" },
 			{ []()-> IMode* { return new ImGuiWindowMode; },	"ImGui Window Mode" },
+			{ []()-> IMode* { return new RectangleMode; },			"Rectangle Mode" },
+			{ []()-> IMode* { return new ImPlotMode; },				"ImPlot Mode" },
 			// Add more modes here as needed
 		};
 		//Windows
@@ -117,6 +117,8 @@ int main()
 {
 	auto& jobSystem = Utility::Singleton::Register<Utility::JobSystem>();
 	jobSystem.Initialize();
+
+	SetDllDirectoryA(DllDirectory.data());
 
 	Framework f;
 	f.Run(new SandBox, L"Bad Apple!! but it's ImGui");

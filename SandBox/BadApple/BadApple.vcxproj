@@ -54,13 +54,18 @@
       <LanguageStandard>stdcpp23</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <AdditionalIncludeDirectories>$(SolutionDir)ThirdParty\OpenCV\Inc\;$(SolutionDir)ThirdParty\FMOD\Inc\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)ThirdParty\OpenCV\LIb\;$(SolutionDir)ThirdParty\FMOD\Lib\$(Platform)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>opencv_world4120d.lib;fmod_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <DelayLoadDLLs>fmod.dll;opencv_videoio_ffmpeg4120_64.dll;opencv_world4120d.dll;opencv_world4120.dll;%(DelayLoadDLLs)</DelayLoadDLLs>
     </Link>
+    <PostBuildEvent>
+      <Command>$(SolutionDir)Tools\ExportDlls.bat "$(ProjectDir)" "$(SolutionDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -73,6 +78,7 @@
       <LanguageStandard>stdcpp23</LanguageStandard>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <AdditionalIncludeDirectories>$(SolutionDir)ThirdParty\OpenCV\Inc\;$(SolutionDir)ThirdParty\FMOD\Inc\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -81,7 +87,11 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)ThirdParty\OpenCV\LIb\;$(SolutionDir)ThirdParty\FMOD\Lib\$(Platform)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>opencv_world4120d.lib;fmod_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <DelayLoadDLLs>fmod.dll;opencv_videoio_ffmpeg4120_64.dll;opencv_world4120d.dll;opencv_world4120.dll;%(DelayLoadDLLs)</DelayLoadDLLs>
     </Link>
+    <PostBuildEvent>
+      <Command>$(SolutionDir)Tools\ExportDlls.bat "$(ProjectDir)" "$(SolutionDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AnimationPlayer.cpp" />

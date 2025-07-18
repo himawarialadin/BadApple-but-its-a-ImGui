@@ -5,7 +5,7 @@
 typedef unsigned int ImU32;
 
 //
-class TransparentMode : public IMode
+class RectangleMode : public IMode
 {
 public:
 	void Show() override;

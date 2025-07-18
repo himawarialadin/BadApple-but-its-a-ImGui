@@ -104,19 +104,19 @@ Animation settingsにあるModeを切り替えることで表示方法を変え�
     インストール場所は変えないでください。（C:\Program Files\FMOD SoundSystem\FMOD Studio 2.03.08)
     [https://www.fmod.com/download](https://www.fmod.com/download)
     
-    (FMOD_API_DIR)\core\inc のファイルを ThirdParty\FMOD\Inc\fmod にコピー
-    (FMOD_API_DIR)\core\lib のファイルを ThirdParty\FMOD\Lib にコピー
-    ※(FMOD_API_DIR)はSDKのファイルパス
+    (FMOD_API_DIR)\core\inc のファイルを ThirdParty\FMOD\Inc\fmod にコピー 
+    (FMOD_API_DIR)\core\lib のファイルを ThirdParty\FMOD\Lib にコピー 
+    ※(FMOD_API_DIR)はSDKのファイルパス 
     
 - OpenCV
     
     次のURLからOpenCV 4.12.0をダウンロードし、実行後、適当な場所に展開します。（opencv-4.12-windows.exe）
     [https://github.com/opencv/opencv/releases/tag/4.12.0](https://github.com/opencv/opencv/releases/tag/4.12.0)
     
-    opencv\build\include\opencv2を、ThirdParty\OpenCV\Incにコピー
-    opencv\build\x64\vc16\libを、ThirdParty\OpenCV\Libにコピー
-    opencv\build\x64\vc16\binを、ThirdParty\OpenCV\Libにコピー
-    opencv\build\binを、ThirdParty\OpenCV\Libにコピー
+    opencv\build\include\opencv2を、ThirdParty\OpenCV\Incにコピー 
+    opencv\build\x64\vc16\libを、ThirdParty\OpenCV\Libにコピー 
+    opencv\build\x64\vc16\binを、ThirdParty\OpenCV\Libにコピー 
+    opencv\build\binを、ThirdParty\OpenCV\Libにコピー 
     
 
 インストールが完了したら、動画と音声をAssetsにダウンロードし、ソリューションを開いて実行します。
@@ -131,7 +131,7 @@ Animation settingsにあるModeを切り替えることで表示方法を変え�
 
 # 免責事項
 
-いかなる場合においても開発者は、本アプリケーションの使用に起因または関連して生じる直接的、間接的、偶発的、
+いかなる場合においても開発者は、本アプリケーションの使用に起因または関連して生じる直接的、間接的、偶発的、 
 または結果的な損害を含むがこれに限定されない、いかなる損害についても責任を負わないものとします。
 
 Made using FMOD Studio by Firelight Technologies Pty Ltd.

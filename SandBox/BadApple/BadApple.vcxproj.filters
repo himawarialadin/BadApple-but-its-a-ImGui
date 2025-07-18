@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="ImPlotMode.cpp">
+      <Filter>Mode</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="QuadTree.cpp">
+      <Filter>Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerWindow.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingWindow.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="VideoWindow.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationPlayer.cpp">
+      <Filter>Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="TransparentMode.cpp">
+      <Filter>Mode</Filter>
+    </ClCompile>
+    <ClCompile Include="FPSWindow.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="PopupWindow.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGuiWindowMode.cpp">
+      <Filter>Mode</Filter>
+    </ClCompile>
+    <ClCompile Include="Common.cpp">
+      <Filter>Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="VideoProcessingJob.cpp">
+      <Filter>Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="StatusPopupWindow.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="IMode.h">
+      <Filter>Mode</Filter>
+    </ClInclude>
+    <ClInclude Include="ImPlotMode.h">
+      <Filter>Mode</Filter>
+    </ClInclude>
+    <ClInclude Include="QuadTree.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerWindow.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowBase.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="SettingWindow.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="VideoWindow.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationPlayer.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="Common.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="TransparentMode.h">
+      <Filter>Mode</Filter>
+    </ClInclude>
+    <ClInclude Include="FPSWindow.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="PopupWindow.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGuiWindowMode.h">
+      <Filter>Mode</Filter>
+    </ClInclude>
+    <ClInclude Include="Constant.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="VideoProcessingJob.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="StatusPopupWindow.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Mode">
+      <UniqueIdentifier>{04bd630c-2580-4bb4-aae0-9a7ab69dbed0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts">
+      <UniqueIdentifier>{41cf1871-65e1-4c5e-9481-247ea3061fed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window">
+      <UniqueIdentifier>{44a9b7f8-e05b-4783-b5b9-5015d08c4603}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

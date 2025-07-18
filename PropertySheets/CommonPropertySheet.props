@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ImportGroup Label="PropertySheets" />
+	
+	<!--User macros-->
+	<PropertyGroup Label="UserMacros">
+
+		<!--Utilities-->
+		<LibConfiguration Condition="'$(Configuration)'=='Master'">Release</LibConfiguration>
+		<LibConfiguration Condition="'$(Configuration)'!='Master'">$(Configuration)</LibConfiguration>
+
+		<!--Custom dirs-->
+		<IncludeDir>Inc\</IncludeDir>
+		
+		<LibDir>Lib\$(Platform)\$(Configuration)\</LibDir>
+		<LibDirNoMaster>Lib\$(Platform)\$(LibConfiguration)\</LibDirNoMaster>
+		<LibDirNoConfig>Lib\$(Platform)\</LibDirNoConfig>
+		
+		<ThirdPartyDir>$(SolutionDir)ThirdParty\</ThirdPartyDir>
+		<ModuleDir>$(SolutionDir)Module\</ModuleDir>
+		
+	</PropertyGroup>
+
+	<!--Preprocessor definitions-->
+	<ItemDefinitionGroup>
+		<ClCompile>
+			<PreprocessorDefinitions>WIN32_LEAN_AND_MEAN;NOCOMM;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+		</ClCompile>
+	</ItemDefinitionGroup>
+
+	<ItemDefinitionGroup Condition="'$(Configuration)'=='Master'">
+		<ClCompile>
+			<PreprocessorDefinitions>MASTER_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+		</ClCompile>
+	</ItemDefinitionGroup>
+
+</Project>

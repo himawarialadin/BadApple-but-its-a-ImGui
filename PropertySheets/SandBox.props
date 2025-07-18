@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <OutDir>Bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)ThirdParty\DirectXTK\Inc\;$(SolutionDir)ThirdParty\DirectXTex\Inc\;$(SolutionDir)External\ImGui\Inc\;$(SolutionDir)External\Utility\Inc\;$(SolutionDir)External\SimpleMath\Inc\;$(SolutionDir)External\Framework\Inc\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(SolutionDir)ThirdParty\DirectXTex\Lib\$(Platform)\$(Configuration)\;$(SolutionDir)ThirdParty\DirectXTK\Lib\$(Platform)\$(Configuration)\;$(SolutionDir)External\ImGui\Lib\$(Platform)\$(Configuration)\;$(SolutionDir)External\SimpleMath\Lib\$(Platform)\$(Configuration)\;$(SolutionDir)External\Utility\Lib\$(Platform)\$(Configuration)\;$(SolutionDir)External\Framework\Lib\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>d3d11.lib;d3dcompiler.lib;dxgi.lib;dxguid.lib;ImGui.lib;SimpleMath.lib;Utility.lib;Framework.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup />
+</Project>

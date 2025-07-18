@@ -17,7 +17,8 @@
 
 # インストール/使い方
 
-最初にAssetsフォルダにBad Apple!!の動画と音声ファイルをダウンロードする必要があります。（ファイルがない場合はエラーが発生し、実行できません）  
+最初にAssetsフォルダにBad Apple!!の動画と音声ファイルをダウンロードする必要があります。  
+（ファイルがない場合はエラーが発生し、実行できません）  
 詳細はAssets/README.mdを参照してください。  
   
 Playerウィンドウ（画像下部）の再生マークボタンを押すと、処理された動画が再生されます。  
@@ -100,8 +101,9 @@ Animation settingsにあるModeを切り替えることで表示方法を変え�
 
 - FMOD Core API
     
-    次のURLからFMOD Studio (2.03.08)をダウンロードし、指示通りダウンロードします。
-    インストール場所は変えないでください。（C:\Program Files\FMOD SoundSystem\FMOD Studio 2.03.08)
+    次のURLからFMOD Studio (2.03.08)をダウンロードし、指示通りダウンロードします。  
+    インストール場所は変えないでください。  
+    （C:\Program Files\FMOD SoundSystem\FMOD Studio 2.03.08)  
     [https://www.fmod.com/download](https://www.fmod.com/download)
     
     (FMOD_API_DIR)\core\inc のファイルを ThirdParty\FMOD\Inc\fmod にコピー  

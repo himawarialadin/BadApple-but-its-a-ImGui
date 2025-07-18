@@ -133,5 +133,5 @@ Animation settingsにあるModeを切り替えることで表示方法を変え�
 いかなる場合においても開発者は、本アプリケーションの使用に起因または関連して生じる直接的、間接的、偶発的、 
 または結果的な損害を含むがこれに限定されない、いかなる損害についても責任を負わないものとします。
 
-Made using FMOD Studio by Firelight Technologies Pty Ltd.
-Copyright © 2025 himawarialadin All rights reserved.
+Made using FMOD Studio by Firelight Technologies Pty Ltd.  
+Copyright © 2025 himawarialadin All rights reserved.  

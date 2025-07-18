@@ -84,6 +84,10 @@ private:
 			auto statusPopup = CreateWindows<StatusPopupWindow>();
 		}
 
+		//Load ini
+		ImGui::LoadIniSettingsFromDisk(WindowIniFileName.data());
+		
+
 		Window::GetInstance()->SetEnableAlphaComposing(true);
 	}
 

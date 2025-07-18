@@ -4,6 +4,7 @@
 
 static constexpr std::string_view DisplayWindowName		= "Bad Apple!!";
 static constexpr std::string_view DllDirectory					= "./Plugins/";
+static constexpr std::string_view WindowIniFileName		= "Assets/imgui.ini";
 static constexpr std::string_view VideoFileName				= "Assets/BadApple.mp4";
 static constexpr std::string_view AudioFileName				= "Assets/BadApple.wav";
 static constexpr std::string_view FMOD_LogoFilename		= "Assets/FMOD_Logo.png";

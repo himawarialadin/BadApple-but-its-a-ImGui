@@ -84,11 +84,13 @@ Animation settingsにあるModeを切り替えることで表示方法を変え�
     
     灰色と緑と水色の表の部分のことを言います。  
     現在の読み込み区間とその状態を把握することができます。
-    
-    緑：現在読み込まれている区間  
-    水色：現在読み込まれている区間＋現在の再生位置の区間  
-    灰色：読み込まれていない区間  
-    赤色の線：現在の再生位置
+
+  | 色       | 説明                                           | 
+  | -------- | ---------------------------------------------- | 
+  | 緑色     | 現在読み込まれている区間                       | 
+  | 水色     | 現在読み込まれている区間＋現在の再生位置の区間 |
+  | 灰色     | 読み込まれていない区間 | 
+  | 赤色の線 | 現在の再生位置                         | 
     
 
 ---
@@ -102,26 +104,21 @@ Animation settingsにあるModeを切り替えることで表示方法を変え�
 - FMOD Core API
     
     次のURLからFMOD Studio (2.03.08)をダウンロードし、指示通りダウンロードします。  
-    インストール場所は変えないでください。  
-    （C:\Program Files\FMOD SoundSystem\FMOD Studio 2.03.08)  
     [https://www.fmod.com/download](https://www.fmod.com/download)
-    
-    (FMOD_API_DIR)\core\inc のファイルを ThirdParty\FMOD\Inc\fmod にコピー  
-    (FMOD_API_DIR)\core\lib のファイルを ThirdParty\FMOD\Lib にコピー  
-    ※(FMOD_API_DIR)はSDKのファイルパス  
+
+    インストールが完了したら、Tools/Import_FMOD.ps1を実行し、ダイアログからFMODをインストールした場所を選択してください。  
+    自動でプロジェクトにインポートされます。
     
 - OpenCV
     
-    次のURLからOpenCV 4.12.0をダウンロードし、実行後、適当な場所に展開します。（opencv-4.12-windows.exe）
+    次のURLからOpenCV 4.12.0をダウンロードし、実行後適当な場所に展開します。  
+    (opencv-4.12-windows.exe)  
     [https://github.com/opencv/opencv/releases/tag/4.12.0](https://github.com/opencv/opencv/releases/tag/4.12.0)
-    
-    opencv\build\include\opencv2を、ThirdParty\OpenCV\Incにコピー  
-    opencv\build\x64\vc16\libを、ThirdParty\OpenCV\Libにコピー  
-    opencv\build\x64\vc16\binを、ThirdParty\OpenCV\Libにコピー  
-    opencv\build\binを、ThirdParty\OpenCV\Libにコピー  
-    
 
-インストールが完了したら、動画と音声をAssetsにダウンロードし、ソリューションを開いて実行します。
+    インストールが完了したら、Tools/Import_OpenCV.ps1を実行し、ダイアログからOpenCVをインストールした場所を選択してください。  
+    自動でプロジェクトにインポートされます。
+
+すべてのインストールが完了したら、動画と音声をAssetsにダウンロードし、ソリューションを開いて実行します。
 
 ---
 

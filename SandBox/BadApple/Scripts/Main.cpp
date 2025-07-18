@@ -8,18 +8,18 @@
 #include <Framework/Timer.h>
 #include <Framework/TextureLoader.h>
 
-#include "ImPlotMode.h"
-#include "TransparentMode.h"
-#include "ImGuiWindowMode.h"
+#include "Mode/ImPlotMode.h"
+#include "Mode/RectangleMode.h"
+#include "Mode/ImGuiWindowMode.h"
+
+#include "Window/PlayerWindow.h"
+#include "Window/SettingWindow.h"
+#include "Window/VideoWindow.h"
+#include "Window/FPSWindow.h"
+#include "Window/PopupWindow.h"
+#include "Window/StatusPopupWindow.h"
 
 #include "AnimationPlayer.h"
-#include "PlayerWindow.h"
-#include "SettingWindow.h"
-#include "VideoWindow.h"
-#include "FPSWindow.h"
-#include "PopupWindow.h"
-#include "StatusPopupWindow.h"
-
 #include "Constant.h"
 
 #include <array>

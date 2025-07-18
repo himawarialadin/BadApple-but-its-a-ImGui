@@ -1,5 +1,5 @@
 #pragma once
-#include "WindowBase.h"
+#include "IWindow.h"
 #include <Math/Vector2Int.h>
 #include <wrl.h>
 

@@ -1,5 +1,5 @@
 #pragma once
-#include "WindowBase.h"
+#include "IWindow.h"
 
 class StatusPopupWindow : public IWindow
 {

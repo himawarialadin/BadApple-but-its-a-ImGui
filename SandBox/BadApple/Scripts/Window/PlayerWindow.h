@@ -1,5 +1,5 @@
 #pragma once
-#include "WindowBase.h"
+#include "IWindow.h"
 #include <string>
 
 class AnimationPlayer;

@@ -24,6 +24,8 @@ bool VideoWindow::Initialize(std::string_view filename)
 
 	if (!m_videoCapture->isOpened())
 		return false;
+
+	return true;
 }
 
 void VideoWindow::Show()

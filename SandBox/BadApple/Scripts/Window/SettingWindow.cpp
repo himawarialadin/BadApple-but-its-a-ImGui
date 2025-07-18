@@ -1,12 +1,13 @@
 #include "SettingWindow.h"
 #include <ImGui/imgui.h>
-#include "IMode.h"
+#include <ImGui/imgui_internal.h>
+
+#include "Mode/IMode.h"
 #include "VideoWindow.h"
 #include "AnimationPlayer.h"
 #include "VideoProcessingJob.h"
 #include "Constant.h"
 #include <Math/Converter/ImVec.h>
-#include <ImGui/imgui_internal.h>
 #include <Framework/Window.h>
 
 SettingWindow::SettingWindow()

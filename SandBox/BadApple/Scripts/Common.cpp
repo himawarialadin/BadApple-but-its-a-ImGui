@@ -7,7 +7,7 @@ Math::Color QuadTreeColorsToColor(QuadTreeNode const& node)
 {
 	constexpr auto Spaces = QuadSpaces<QuadTreeMaxDepth>::Spaces;
 
-	uint32_t		index		= node.id + Spaces[node.level];
+	uint64_t		index		= node.id + Spaces[node.level];
 	Math::Color	color		= QuadTreeColors[index % _countof(QuadTreeColors)];
 
 	if(node.level < 2)

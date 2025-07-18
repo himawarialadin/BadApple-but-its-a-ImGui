@@ -1,107 +1,107 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="ImPlotMode.cpp">
-      <Filter>Mode</Filter>
-    </ClCompile>
-    <ClCompile Include="Main.cpp">
+    <ClCompile Include="Scripts\AnimationPlayer.cpp">
       <Filter>Scripts</Filter>
     </ClCompile>
-    <ClCompile Include="QuadTree.cpp">
+    <ClCompile Include="Scripts\Common.cpp">
       <Filter>Scripts</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerWindow.cpp">
-      <Filter>Window</Filter>
-    </ClCompile>
-    <ClCompile Include="SettingWindow.cpp">
-      <Filter>Window</Filter>
-    </ClCompile>
-    <ClCompile Include="VideoWindow.cpp">
-      <Filter>Window</Filter>
-    </ClCompile>
-    <ClCompile Include="AnimationPlayer.cpp">
+    <ClCompile Include="Scripts\VideoProcessingJob.cpp">
       <Filter>Scripts</Filter>
     </ClCompile>
-    <ClCompile Include="TransparentMode.cpp">
-      <Filter>Mode</Filter>
-    </ClCompile>
-    <ClCompile Include="FPSWindow.cpp">
-      <Filter>Window</Filter>
-    </ClCompile>
-    <ClCompile Include="PopupWindow.cpp">
-      <Filter>Window</Filter>
-    </ClCompile>
-    <ClCompile Include="ImGuiWindowMode.cpp">
-      <Filter>Mode</Filter>
-    </ClCompile>
-    <ClCompile Include="Common.cpp">
+    <ClCompile Include="Scripts\Main.cpp">
       <Filter>Scripts</Filter>
     </ClCompile>
-    <ClCompile Include="VideoProcessingJob.cpp">
+    <ClCompile Include="Scripts\QuadTree.cpp">
       <Filter>Scripts</Filter>
     </ClCompile>
-    <ClCompile Include="StatusPopupWindow.cpp">
-      <Filter>Window</Filter>
+    <ClCompile Include="Scripts\Mode\ImGuiWindowMode.cpp">
+      <Filter>Scripts\Mode</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\Mode\RectangleMode.cpp">
+      <Filter>Scripts\Mode</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\Mode\ImPlotMode.cpp">
+      <Filter>Scripts\Mode</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\Window\FPSWindow.cpp">
+      <Filter>Scripts\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\Window\PlayerWindow.cpp">
+      <Filter>Scripts\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\Window\PopupWindow.cpp">
+      <Filter>Scripts\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\Window\SettingWindow.cpp">
+      <Filter>Scripts\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\Window\StatusPopupWindow.cpp">
+      <Filter>Scripts\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\Window\VideoWindow.cpp">
+      <Filter>Scripts\Window</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="IMode.h">
-      <Filter>Mode</Filter>
-    </ClInclude>
-    <ClInclude Include="ImPlotMode.h">
-      <Filter>Mode</Filter>
-    </ClInclude>
-    <ClInclude Include="QuadTree.h">
+    <ClInclude Include="Scripts\AnimationPlayer.h">
       <Filter>Scripts</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerWindow.h">
-      <Filter>Window</Filter>
-    </ClInclude>
-    <ClInclude Include="WindowBase.h">
-      <Filter>Window</Filter>
-    </ClInclude>
-    <ClInclude Include="SettingWindow.h">
-      <Filter>Window</Filter>
-    </ClInclude>
-    <ClInclude Include="VideoWindow.h">
-      <Filter>Window</Filter>
-    </ClInclude>
-    <ClInclude Include="AnimationPlayer.h">
+    <ClInclude Include="Scripts\Common.h">
       <Filter>Scripts</Filter>
     </ClInclude>
-    <ClInclude Include="Common.h">
+    <ClInclude Include="Scripts\Constant.h">
       <Filter>Scripts</Filter>
     </ClInclude>
-    <ClInclude Include="TransparentMode.h">
-      <Filter>Mode</Filter>
-    </ClInclude>
-    <ClInclude Include="FPSWindow.h">
-      <Filter>Window</Filter>
-    </ClInclude>
-    <ClInclude Include="PopupWindow.h">
-      <Filter>Window</Filter>
-    </ClInclude>
-    <ClInclude Include="ImGuiWindowMode.h">
-      <Filter>Mode</Filter>
-    </ClInclude>
-    <ClInclude Include="Constant.h">
+    <ClInclude Include="Scripts\VideoProcessingJob.h">
       <Filter>Scripts</Filter>
     </ClInclude>
-    <ClInclude Include="VideoProcessingJob.h">
+    <ClInclude Include="Scripts\QuadTree.h">
       <Filter>Scripts</Filter>
     </ClInclude>
-    <ClInclude Include="StatusPopupWindow.h">
-      <Filter>Window</Filter>
+    <ClInclude Include="Scripts\Mode\ImGuiWindowMode.h">
+      <Filter>Scripts\Mode</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\Mode\RectangleMode.h">
+      <Filter>Scripts\Mode</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\Mode\IMode.h">
+      <Filter>Scripts\Mode</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\Mode\ImPlotMode.h">
+      <Filter>Scripts\Mode</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\Window\FPSWindow.h">
+      <Filter>Scripts\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\Window\PlayerWindow.h">
+      <Filter>Scripts\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\Window\PopupWindow.h">
+      <Filter>Scripts\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\Window\SettingWindow.h">
+      <Filter>Scripts\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\Window\StatusPopupWindow.h">
+      <Filter>Scripts\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\Window\VideoWindow.h">
+      <Filter>Scripts\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\Window\IWIndow.h">
+      <Filter>Scripts\Window</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Mode">
-      <UniqueIdentifier>{04bd630c-2580-4bb4-aae0-9a7ab69dbed0}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Scripts">
       <UniqueIdentifier>{41cf1871-65e1-4c5e-9481-247ea3061fed}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Window">
+    <Filter Include="Scripts\Mode">
+      <UniqueIdentifier>{04bd630c-2580-4bb4-aae0-9a7ab69dbed0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Window">
       <UniqueIdentifier>{44a9b7f8-e05b-4783-b5b9-5015d08c4603}</UniqueIdentifier>
     </Filter>
   </ItemGroup>

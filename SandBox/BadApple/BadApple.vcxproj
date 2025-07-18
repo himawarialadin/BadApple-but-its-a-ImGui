@@ -53,7 +53,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp23</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(SolutionDir)ThirdParty\OpenCV\Inc\;$(SolutionDir)ThirdParty\FMOD\Inc\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\Scripts;$(SolutionDir)ThirdParty\OpenCV\Inc\;$(SolutionDir)ThirdParty\FMOD\Inc\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -61,7 +61,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)ThirdParty\OpenCV\LIb\;$(SolutionDir)ThirdParty\FMOD\Lib\$(Platform)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>opencv_world4120d.lib;fmod_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <DelayLoadDLLs>fmod.dll;opencv_videoio_ffmpeg4120_64.dll;opencv_world4120d.dll;opencv_world4120.dll;%(DelayLoadDLLs)</DelayLoadDLLs>
+      <DelayLoadDLLs>fmod.dll;opencv_world4120d.dll;opencv_world4120.dll;%(DelayLoadDLLs)</DelayLoadDLLs>
     </Link>
     <PostBuildEvent>
       <Command>$(SolutionDir)Tools\ExportDlls.bat "$(ProjectDir)" "$(SolutionDir)"</Command>
@@ -77,7 +77,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp23</LanguageStandard>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(SolutionDir)ThirdParty\OpenCV\Inc\;$(SolutionDir)ThirdParty\FMOD\Inc\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\Scripts;$(SolutionDir)ThirdParty\OpenCV\Inc\;$(SolutionDir)ThirdParty\FMOD\Inc\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -87,45 +87,105 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)ThirdParty\OpenCV\LIb\;$(SolutionDir)ThirdParty\FMOD\Lib\$(Platform)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>opencv_world4120d.lib;fmod_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <DelayLoadDLLs>fmod.dll;opencv_videoio_ffmpeg4120_64.dll;opencv_world4120d.dll;opencv_world4120.dll;%(DelayLoadDLLs)</DelayLoadDLLs>
+      <DelayLoadDLLs>fmod.dll;opencv_world4120d.dll;opencv_world4120.dll;%(DelayLoadDLLs)</DelayLoadDLLs>
     </Link>
     <PostBuildEvent>
       <Command>$(SolutionDir)Tools\ExportDlls.bat "$(ProjectDir)" "$(SolutionDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AnimationPlayer.cpp" />
-    <ClCompile Include="Common.cpp" />
-    <ClCompile Include="FPSWindow.cpp" />
-    <ClCompile Include="ImGuiWindowMode.cpp" />
-    <ClCompile Include="PlayerWindow.cpp" />
-    <ClCompile Include="PopupWindow.cpp" />
-    <ClCompile Include="SettingWindow.cpp" />
-    <ClCompile Include="StatusPopupWindow.cpp" />
-    <ClCompile Include="TransparentMode.cpp" />
-    <ClCompile Include="VideoProcessingJob.cpp" />
-    <ClCompile Include="ImPlotMode.cpp" />
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="QuadTree.cpp" />
-    <ClCompile Include="VideoWindow.cpp" />
+    <ClCompile Include="Scripts\AnimationPlayer.cpp">
+      <DeploymentContent>false</DeploymentContent>
+    </ClCompile>
+    <ClCompile Include="Scripts\Common.cpp">
+      <DeploymentContent>false</DeploymentContent>
+    </ClCompile>
+    <ClCompile Include="Scripts\Main.cpp">
+      <DeploymentContent>false</DeploymentContent>
+    </ClCompile>
+    <ClCompile Include="Scripts\Mode\ImGuiWindowMode.cpp">
+      <DeploymentContent>false</DeploymentContent>
+    </ClCompile>
+    <ClCompile Include="Scripts\Mode\ImPlotMode.cpp">
+      <DeploymentContent>false</DeploymentContent>
+    </ClCompile>
+    <ClCompile Include="Scripts\Mode\RectangleMode.cpp">
+      <DeploymentContent>false</DeploymentContent>
+    </ClCompile>
+    <ClCompile Include="Scripts\QuadTree.cpp">
+      <DeploymentContent>false</DeploymentContent>
+    </ClCompile>
+    <ClCompile Include="Scripts\VideoProcessingJob.cpp">
+      <DeploymentContent>false</DeploymentContent>
+    </ClCompile>
+    <ClCompile Include="Scripts\Window\FPSWindow.cpp">
+      <DeploymentContent>false</DeploymentContent>
+    </ClCompile>
+    <ClCompile Include="Scripts\Window\PlayerWindow.cpp">
+      <DeploymentContent>false</DeploymentContent>
+    </ClCompile>
+    <ClCompile Include="Scripts\Window\PopupWindow.cpp">
+      <DeploymentContent>false</DeploymentContent>
+    </ClCompile>
+    <ClCompile Include="Scripts\Window\SettingWindow.cpp">
+      <DeploymentContent>false</DeploymentContent>
+    </ClCompile>
+    <ClCompile Include="Scripts\Window\StatusPopupWindow.cpp">
+      <DeploymentContent>false</DeploymentContent>
+    </ClCompile>
+    <ClCompile Include="Scripts\Window\VideoWindow.cpp">
+      <DeploymentContent>false</DeploymentContent>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AnimationPlayer.h" />
-    <ClInclude Include="Common.h" />
-    <ClInclude Include="Constant.h" />
-    <ClInclude Include="FPSWindow.h" />
-    <ClInclude Include="ImGuiWindowMode.h" />
-    <ClInclude Include="PlayerWindow.h" />
-    <ClInclude Include="PopupWindow.h" />
-    <ClInclude Include="SettingWindow.h" />
-    <ClInclude Include="StatusPopupWindow.h" />
-    <ClInclude Include="TransparentMode.h" />
-    <ClInclude Include="VideoProcessingJob.h" />
-    <ClInclude Include="IMode.h" />
-    <ClInclude Include="ImPlotMode.h" />
-    <ClInclude Include="QuadTree.h" />
-    <ClInclude Include="VideoWindow.h" />
-    <ClInclude Include="WindowBase.h" />
+    <ClInclude Include="Scripts\AnimationPlayer.h">
+      <DeploymentContent>false</DeploymentContent>
+    </ClInclude>
+    <ClInclude Include="Scripts\Common.h">
+      <DeploymentContent>false</DeploymentContent>
+    </ClInclude>
+    <ClInclude Include="Scripts\Constant.h">
+      <DeploymentContent>false</DeploymentContent>
+    </ClInclude>
+    <ClInclude Include="Scripts\Mode\ImGuiWindowMode.h">
+      <DeploymentContent>false</DeploymentContent>
+    </ClInclude>
+    <ClInclude Include="Scripts\Mode\IMode.h">
+      <DeploymentContent>false</DeploymentContent>
+    </ClInclude>
+    <ClInclude Include="Scripts\Mode\ImPlotMode.h">
+      <DeploymentContent>false</DeploymentContent>
+    </ClInclude>
+    <ClInclude Include="Scripts\Mode\RectangleMode.h">
+      <DeploymentContent>false</DeploymentContent>
+    </ClInclude>
+    <ClInclude Include="Scripts\QuadTree.h">
+      <DeploymentContent>false</DeploymentContent>
+    </ClInclude>
+    <ClInclude Include="Scripts\VideoProcessingJob.h">
+      <DeploymentContent>false</DeploymentContent>
+    </ClInclude>
+    <ClInclude Include="Scripts\Window\FPSWindow.h">
+      <DeploymentContent>false</DeploymentContent>
+    </ClInclude>
+    <ClInclude Include="Scripts\Window\PlayerWindow.h">
+      <DeploymentContent>false</DeploymentContent>
+    </ClInclude>
+    <ClInclude Include="Scripts\Window\PopupWindow.h">
+      <DeploymentContent>false</DeploymentContent>
+    </ClInclude>
+    <ClInclude Include="Scripts\Window\SettingWindow.h">
+      <DeploymentContent>false</DeploymentContent>
+    </ClInclude>
+    <ClInclude Include="Scripts\Window\StatusPopupWindow.h">
+      <DeploymentContent>false</DeploymentContent>
+    </ClInclude>
+    <ClInclude Include="Scripts\Window\VideoWindow.h">
+      <DeploymentContent>false</DeploymentContent>
+    </ClInclude>
+    <ClInclude Include="Scripts\Window\IWIndow.h">
+      <DeploymentContent>false</DeploymentContent>
+    </ClInclude>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

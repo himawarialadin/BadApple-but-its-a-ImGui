@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+	
+	<Type Name ="Math::Vector2">
+		<DisplayString>{{(Vector2) X = {x}, Y = {y}}}</DisplayString>
+	</Type>
+
+	<Type Name ="Math::Vector3">
+		<DisplayString>{{(Vector3) X = {x}, Y = {y}, Z = {z}}}</DisplayString>
+	</Type>
+
+	<Type Name ="Math::Vector4">
+		<DisplayString>{{(Vector4) X = {x}, Y = {y}, Z = {z}, W = {w}}}</DisplayString>
+	</Type>
+
+	<Type Name="Math::Matrix4x4">
+		<Expand>
+			<Synthetic Name="[0]">
+				<DisplayString>{{ {_m00}, {_m01}, {_m02}, {_m03} }}</DisplayString>
+			</Synthetic>
+			<Synthetic Name="[1]">
+				<DisplayString>{{ {_m10}, {_m11}, {_m12}, {_m13} }}</DisplayString>
+			</Synthetic>
+			<Synthetic Name="[2]">
+				<DisplayString>{{ {_m20}, {_m21}, {_m22}, {_m23} }}</DisplayString>
+			</Synthetic>
+			<Synthetic Name="[3]">
+				<DisplayString>{{ {_m30}, {_m31}, {_m32}, {_m33} }}</DisplayString>
+			</Synthetic>
+		</Expand>
+	</Type>
+
+	<Type Name="Math::Quaternion">
+		<DisplayString>{{X = {x}, Y = {y}, Z = {z}, W = {w}}}</DisplayString>
+	</Type>
+	
+	<Type Name = "Math::Color" >
+		<DisplayString>{{(Color(float)) R = {R}, G = {G}, B = {B}, A = {A} }}</DisplayString>
+	</Type>
+	
+</AutoVisualizer>

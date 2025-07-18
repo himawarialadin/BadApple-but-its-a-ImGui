@@ -1,155 +1,92 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="ソース ファイル">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="ヘッダー ファイル">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="リソース ファイル">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Inc\NodeEditor\crude_json.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Inc\NodeEditor\imgui_canvas.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Inc\NodeEditor\imgui_node_editor.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Inc\NodeEditor\imgui_node_editor_api.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="Inc\ImGui\imgui.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ImGui</Filter>
     </ClCompile>
     <ClCompile Include="Inc\ImGui\imgui_demo.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ImGui</Filter>
     </ClCompile>
     <ClCompile Include="Inc\ImGui\imgui_draw.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ImGui</Filter>
     </ClCompile>
     <ClCompile Include="Inc\ImGui\imgui_impl_dx12.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ImGui</Filter>
     </ClCompile>
     <ClCompile Include="Inc\ImGui\imgui_impl_win32.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Inc\ImGui\imgui_stdlib.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Inc\ImGui\imgui_tables.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Inc\ImGui\imgui_widgets.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Inc\NodeEditor\utilities\builders.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Inc\NodeEditor\utilities\drawing.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Inc\NodeEditor\utilities\widgets.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Inc\ImPlot\implot.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Inc\ImPlot\implot_demo.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Inc\ImPlot\implot_items.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ImGui</Filter>
     </ClCompile>
     <ClCompile Include="Inc\ImGui\imgui_stacklayout.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ImGui</Filter>
     </ClCompile>
+    <ClCompile Include="Inc\ImGui\imgui_stdlib.cpp">
+      <Filter>ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Inc\ImGui\imgui_tables.cpp">
+      <Filter>ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Inc\ImGui\imgui_widgets.cpp">
+      <Filter>ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Inc\ImPlot\implot.cpp">
+      <Filter>ImPlot</Filter>
+    </ClCompile>
+    <ClCompile Include="Inc\ImPlot\implot_demo.cpp">
+      <Filter>ImPlot</Filter>
+    </ClCompile>
+    <ClCompile Include="Inc\ImPlot\implot_items.cpp">
+      <Filter>ImPlot</Filter>
+    </ClCompile>
+    <ClCompile Include="Inc\ImGui\imgui_impl_dx11.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Inc\NodeEditor\crude_json.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Inc\NodeEditor\imgui_bezier_math.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Inc\NodeEditor\imgui_canvas.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Inc\NodeEditor\imgui_extra_math.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Inc\NodeEditor\imgui_node_editor.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Inc\NodeEditor\imgui_node_editor_internal.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Inc\ImGui\imconfig.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>ImGui</Filter>
     </ClInclude>
     <ClInclude Include="Inc\ImGui\imgui.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>ImGui</Filter>
     </ClInclude>
     <ClInclude Include="Inc\ImGui\imgui_impl_dx12.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>ImGui</Filter>
     </ClInclude>
     <ClInclude Include="Inc\ImGui\imgui_impl_win32.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>ImGui</Filter>
     </ClInclude>
     <ClInclude Include="Inc\ImGui\imgui_internal.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Inc\ImGui\imgui_stdlib.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Inc\ImGui\imstb_rectpack.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Inc\ImGui\imstb_textedit.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Inc\ImGui\imstb_truetype.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Inc\NodeEditor\utilities\builders.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Inc\NodeEditor\utilities\drawing.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Inc\NodeEditor\utilities\widgets.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Inc\ImPlot\implot.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Inc\ImPlot\implot_internal.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>ImGui</Filter>
     </ClInclude>
     <ClInclude Include="Inc\ImGui\imgui_stacklayout.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>ImGui</Filter>
     </ClInclude>
     <ClInclude Include="Inc\ImGui\imgui_stacklayout_internal.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>ImGui</Filter>
     </ClInclude>
+    <ClInclude Include="Inc\ImGui\imgui_stdlib.h">
+      <Filter>ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\ImGui\imstb_rectpack.h">
+      <Filter>ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\ImGui\imstb_textedit.h">
+      <Filter>ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\ImGui\imstb_truetype.h">
+      <Filter>ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\ImPlot\implot.h">
+      <Filter>ImPlot</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\ImPlot\implot_internal.h">
+      <Filter>ImPlot</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\ImGui\imgui_impl_dx11.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Inc\NodeEditor\imgui_bezier_math.inl">
-      <Filter>ヘッダー ファイル</Filter>
-    </None>
-    <None Include="Inc\NodeEditor\imgui_extra_math.inl">
-      <Filter>ヘッダー ファイル</Filter>
-    </None>
-    <None Include="Inc\NodeEditor\imgui_node_editor_internal.inl">
-      <Filter>ヘッダー ファイル</Filter>
-    </None>
+    <Filter Include="ImGui">
+      <UniqueIdentifier>{424dee12-3754-44a7-b95f-bdab4e0d7250}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImPlot">
+      <UniqueIdentifier>{8ebe48f5-c18d-4ede-8f05-b8c13e6b3743}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

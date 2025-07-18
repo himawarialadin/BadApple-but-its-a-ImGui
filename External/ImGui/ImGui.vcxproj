@@ -14,6 +14,7 @@
     <ClCompile Include="Inc\ImGui\imgui.cpp" />
     <ClCompile Include="Inc\ImGui\imgui_demo.cpp" />
     <ClCompile Include="Inc\ImGui\imgui_draw.cpp" />
+    <ClCompile Include="Inc\ImGui\imgui_impl_dx11.cpp" />
     <ClCompile Include="Inc\ImGui\imgui_impl_dx12.cpp" />
     <ClCompile Include="Inc\ImGui\imgui_impl_win32.cpp" />
     <ClCompile Include="Inc\ImGui\imgui_stacklayout.cpp" />
@@ -23,17 +24,11 @@
     <ClCompile Include="Inc\ImPlot\implot.cpp" />
     <ClCompile Include="Inc\ImPlot\implot_demo.cpp" />
     <ClCompile Include="Inc\ImPlot\implot_items.cpp" />
-    <ClCompile Include="Inc\NodeEditor\crude_json.cpp" />
-    <ClCompile Include="Inc\NodeEditor\imgui_canvas.cpp" />
-    <ClCompile Include="Inc\NodeEditor\imgui_node_editor.cpp" />
-    <ClCompile Include="Inc\NodeEditor\imgui_node_editor_api.cpp" />
-    <ClCompile Include="Inc\NodeEditor\utilities\builders.cpp" />
-    <ClCompile Include="Inc\NodeEditor\utilities\drawing.cpp" />
-    <ClCompile Include="Inc\NodeEditor\utilities\widgets.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Inc\ImGui\imconfig.h" />
     <ClInclude Include="Inc\ImGui\imgui.h" />
+    <ClInclude Include="Inc\ImGui\imgui_impl_dx11.h" />
     <ClInclude Include="Inc\ImGui\imgui_impl_dx12.h" />
     <ClInclude Include="Inc\ImGui\imgui_impl_win32.h" />
     <ClInclude Include="Inc\ImGui\imgui_internal.h" />
@@ -45,20 +40,6 @@
     <ClInclude Include="Inc\ImGui\imstb_truetype.h" />
     <ClInclude Include="Inc\ImPlot\implot.h" />
     <ClInclude Include="Inc\ImPlot\implot_internal.h" />
-    <ClInclude Include="Inc\NodeEditor\crude_json.h" />
-    <ClInclude Include="Inc\NodeEditor\imgui_bezier_math.h" />
-    <ClInclude Include="Inc\NodeEditor\imgui_canvas.h" />
-    <ClInclude Include="Inc\NodeEditor\imgui_extra_math.h" />
-    <ClInclude Include="Inc\NodeEditor\imgui_node_editor.h" />
-    <ClInclude Include="Inc\NodeEditor\imgui_node_editor_internal.h" />
-    <ClInclude Include="Inc\NodeEditor\utilities\builders.h" />
-    <ClInclude Include="Inc\NodeEditor\utilities\drawing.h" />
-    <ClInclude Include="Inc\NodeEditor\utilities\widgets.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Inc\NodeEditor\imgui_bezier_math.inl" />
-    <None Include="Inc\NodeEditor\imgui_extra_math.inl" />
-    <None Include="Inc\NodeEditor\imgui_node_editor_internal.inl" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

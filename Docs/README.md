@@ -18,7 +18,9 @@ ImGui / ocornut : [GitHub - ocornut/imgui: Dear ImGui: Bloat-free Graphical User
 
 BadApple!! PV【影絵】/ あにら氏 : https://www.nicovideo.jp/watch/sm8628149
 
+---
 
+[日本語版](README.md) [English Ver](README-en.md)
 
 ---
 
@@ -165,8 +167,6 @@ Animation settingsにあるModeを切り替えることで表示方法を変え�
 
 Made using FMOD Studio by Firelight Technologies Pty Ltd.  
 Copyright © 2025 himawarialadin All rights reserved.  
-
-
 
 何かありましたら、Issueにてご連絡ください。
 

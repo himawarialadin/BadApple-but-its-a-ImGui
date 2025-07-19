@@ -23,7 +23,7 @@ void RectangleMode::Show()
 	m_backgroundColor = ImGui::GetColorU32(ImGuiCol_WindowBg);
 
 	ImGui::PushStyleColor(ImGuiCol_WindowBg, { 0.0f, 0.0f, 0.0f, 0.0f });
-	if(ImGui::Begin("Bad Apple!!"))
+	if(ImGui::Begin(DisplayWindowName.data()))
 	{
 		m_windowMin = Math::Cast<Math::Vector2>(ImGui::GetCursorScreenPos()) - Math::Cast<Math::Vector2>(style.WindowPadding);
 		m_windowMax = Math::Cast<Math::Vector2>(ImGui::GetCursorScreenPos() + ImGui::GetContentRegionAvail()) + Math::Cast<Math::Vector2>(style.WindowPadding);

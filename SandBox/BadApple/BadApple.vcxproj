@@ -60,8 +60,8 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)ThirdParty\OpenCV\LIb\;$(SolutionDir)ThirdParty\FMOD\Lib\$(Platform)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opencv_world4120d.lib;fmod_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <DelayLoadDLLs>fmod.dll;opencv_world4120d.dll;opencv_world4120.dll;%(DelayLoadDLLs)</DelayLoadDLLs>
+      <AdditionalDependencies>opencv_world4120$(OPENCV_DEBUG_SUFFIX).lib;fmod_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <DelayLoadDLLs>fmod.dll;opencv_world4120$(OPENCV_DEBUG_SUFFIX).dll;%(DelayLoadDLLs)</DelayLoadDLLs>
     </Link>
     <PostBuildEvent>
       <Command>$(SolutionDir)Tools\ExportDlls.bat "$(ProjectDir)" "$(SolutionDir)"</Command>
@@ -86,8 +86,8 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)ThirdParty\OpenCV\LIb\;$(SolutionDir)ThirdParty\FMOD\Lib\$(Platform)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opencv_world4120d.lib;fmod_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <DelayLoadDLLs>fmod.dll;opencv_world4120d.dll;opencv_world4120.dll;%(DelayLoadDLLs)</DelayLoadDLLs>
+      <AdditionalDependencies>opencv_world4120$(OPENCV_DEBUG_SUFFIX).lib;fmod_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <DelayLoadDLLs>fmod.dll;opencv_world4120$(OPENCV_DEBUG_SUFFIX).dll;%(DelayLoadDLLs)</DelayLoadDLLs>
     </Link>
     <PostBuildEvent>
       <Command>$(SolutionDir)Tools\ExportDlls.bat "$(ProjectDir)" "$(SolutionDir)"</Command>

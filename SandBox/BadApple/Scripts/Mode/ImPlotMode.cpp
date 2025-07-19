@@ -8,7 +8,7 @@
 void ImPlotMode::Show()
 {
 
-	if (ImGui::Begin("Bad Apple!!"))
+	if (ImGui::Begin(DisplayWindowName.data()))
 	{
 		if (ImPlot::BeginPlot("##CustomRend", { -1.0f, -1.0f }))
 		{

@@ -1,33 +1,36 @@
-#include "StatusPopupWindow.h"
+#include "StatusCheckPopupWindow.h"
 #include <filesystem>
 #include "Constant.h"
 #include <ImGui/imgui.h>
 #include <Framework/Timer.h>
 #include <Framework/Framework.h>
 
-StatusPopupWindow::StatusPopupWindow()
+
+constexpr float PopupDelay = 0.1f; // ポップアップ表示の遅延時間
+
+StatusCheckPopupWindow::StatusCheckPopupWindow()
 {
 	namespace fs = std::filesystem;
 	m_exisingVideo = fs::exists(fs::path(VideoFileName));
 	m_exisingAudio = fs::exists(fs::path(AudioFileName));
 }
 
-StatusPopupWindow::~StatusPopupWindow()
+StatusCheckPopupWindow::~StatusCheckPopupWindow()
 {
 }
 
-void StatusPopupWindow::Show()
+void StatusCheckPopupWindow::Show()
 {
 	if (m_exisingAudio && m_exisingVideo)
 		return;
 
 	m_dlay += Timer::DeltaTime();
-	if (!m_showingPopup && m_dlay > 0.1f)
+	if (!m_isShowingPopup && m_dlay > PopupDelay)
 	{
 		ImGui::OpenPopup("Status Error", ImGuiPopupFlags_NoOpenOverExistingPopup);
 
 		if (ImGui::IsPopupOpen("Status Error"))
-			m_showingPopup = true; // ポップアップが表示中に設定
+			m_isShowingPopup = true; // ポップアップが表示中に設定
 		
 	}
 
@@ -43,12 +46,12 @@ void StatusPopupWindow::Show()
 		ImGui::NewLine();
 
 		ImGui::Separator();
-		ImGui::Text("For details, please refer to Assets/README.md.");
+		ImGui::Text("For details, please refer to Assets/README.txt .");
 		ImGui::Text("Please place the file in the specified location and restart the application.");
 		if (ImGui::Button("Exit (Close the Application)", { -1.0f, 0.0f }))
 		{
 			ImGui::CloseCurrentPopup();
-			m_showingPopup = false;
+			m_isShowingPopup = false;
 
 			Framework::Exit(); // アプリケーションを終了
 		}

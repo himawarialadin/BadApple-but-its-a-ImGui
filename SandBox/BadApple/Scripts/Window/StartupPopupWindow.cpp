@@ -1,4 +1,4 @@
-#include "PopupWindow.h"
+#include "StartupPopupWindow.h"
 #include "Common.h"
 #include "Constant.h"
 
@@ -13,18 +13,18 @@
 constexpr float LogoScale	= 0.5f;
 constexpr float PopupDelay = 0.1f; // ポップアップ表示の遅延時間
 
-PopupWindow::PopupWindow()
+StartupPopupWindow::StartupPopupWindow()
 {
 	TextureLoader::LoadTextureFromFile(FMOD_LogoFilename.data(),m_fmodLogoTex.ReleaseAndGetAddressOf(), & m_fmodLogoSize);
 	if(m_fmodLogoTex == nullptr)
 		throw std::runtime_error("Failed to load FMOD logo texture");
 }
 
-PopupWindow::~PopupWindow()
+StartupPopupWindow::~StartupPopupWindow()
 {
 }
 
-void PopupWindow::Show()
+void StartupPopupWindow::Show()
 {
 	if (m_showed)
 		return;

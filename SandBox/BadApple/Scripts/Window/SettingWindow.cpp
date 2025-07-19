@@ -59,6 +59,7 @@ void SettingWindow::Show()
 
 void SettingWindow::ShowAnimationSettings()
 {
+	auto window = Window::GetInstance();
 	auto& [_, currentModeName] = m_modeBuilders->at(m_modeIndex);
 	if (ImGui::BeginCombo("Mode", currentModeName.data()))
 	{
@@ -89,9 +90,15 @@ void SettingWindow::ShowAnimationSettings()
 	if (ImGui::Checkbox("Show video (OpenCV)", &videoShowing))
 		m_videoWindow->SetShowing(videoShowing);
 
-	bool isAlphaComposing = Window::GetInstance()->IsEnableAlphaComposing();
+	bool isAvailable = window->IsAvailableAlphaComposing();
+	ImGui::BeginDisabled(!isAvailable);
+	if (!isAvailable)
+		ImGui::TextColored(Math::Cast<ImVec4>(Math::Colors::Red), "Transparent window is not supported on this OS version.");
+
+	bool isAlphaComposing = window->IsEnableAlphaComposing();
 	if(ImGui::Checkbox("Transparent window", &isAlphaComposing))
-		Window::GetInstance()->SetEnableAlphaComposing(isAlphaComposing);
+		window->SetEnableAlphaComposing(isAlphaComposing);
+	ImGui::EndDisabled();
 }
 
 void SettingWindow::ShowProcessSettings()

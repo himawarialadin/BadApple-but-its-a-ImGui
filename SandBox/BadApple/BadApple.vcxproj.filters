@@ -31,13 +31,13 @@
     <ClCompile Include="Scripts\Window\PlayerWindow.cpp">
       <Filter>Scripts\Window</Filter>
     </ClCompile>
-    <ClCompile Include="Scripts\Window\PopupWindow.cpp">
+    <ClCompile Include="Scripts\Window\StartupPopupWindow.cpp">
       <Filter>Scripts\Window</Filter>
     </ClCompile>
     <ClCompile Include="Scripts\Window\SettingWindow.cpp">
       <Filter>Scripts\Window</Filter>
     </ClCompile>
-    <ClCompile Include="Scripts\Window\StatusPopupWindow.cpp">
+    <ClCompile Include="Scripts\Window\StatusCheckPopupWindow.cpp">
       <Filter>Scripts\Window</Filter>
     </ClCompile>
     <ClCompile Include="Scripts\Window\VideoWindow.cpp">
@@ -78,13 +78,13 @@
     <ClInclude Include="Scripts\Window\PlayerWindow.h">
       <Filter>Scripts\Window</Filter>
     </ClInclude>
-    <ClInclude Include="Scripts\Window\PopupWindow.h">
+    <ClInclude Include="Scripts\Window\StartupPopupWindow.h">
       <Filter>Scripts\Window</Filter>
     </ClInclude>
     <ClInclude Include="Scripts\Window\SettingWindow.h">
       <Filter>Scripts\Window</Filter>
     </ClInclude>
-    <ClInclude Include="Scripts\Window\StatusPopupWindow.h">
+    <ClInclude Include="Scripts\Window\StatusCheckPopupWindow.h">
       <Filter>Scripts\Window</Filter>
     </ClInclude>
     <ClInclude Include="Scripts\Window\VideoWindow.h">

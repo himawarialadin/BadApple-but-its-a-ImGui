@@ -34,18 +34,20 @@ Window::Window(std::wstring_view title, std::wstring_view className)
 	if (title.empty())
 		title = L"ImGui SandBox";
 
-	wc = { sizeof(wc), CS_CLASSDC, WndProc, 0L, 0L, GetModuleHandle(nullptr), nullptr, nullptr, nullptr, nullptr, className.data(), nullptr };
-	::RegisterClassExW(&wc);
+	m_wc = { sizeof(m_wc), CS_CLASSDC, WndProc, 0L, 0L, GetModuleHandle(nullptr), nullptr, nullptr, nullptr, nullptr, className.data(), nullptr };
+	::RegisterClassExW(&m_wc);
 
-	hwnd = ::CreateWindowW(wc.lpszClassName, title.data(), WS_OVERLAPPEDWINDOW, 100, 100, windowWidth, windowHeight, nullptr, nullptr, wc.hInstance, nullptr);
+	m_hwnd = ::CreateWindowW(m_wc.lpszClassName, title.data(), WS_OVERLAPPEDWINDOW, 100, 100, m_windowWidth, m_windowHeight, nullptr, nullptr, m_wc.hInstance, nullptr);
+
+	m_isAvailableAlphaComposing = _IsWindows8OrGreater() || CheckAlphaComposingSupport(m_hwnd);
 	instance = this;
 }
 
 
 void Window::Show()
 {
-	::ShowWindow(hwnd, SW_SHOWDEFAULT);
-	::UpdateWindow(hwnd);
+	::ShowWindow(m_hwnd, SW_SHOWDEFAULT);
+	::UpdateWindow(m_hwnd);
 }
 
 bool Window::ProcessMessage()
@@ -64,52 +66,62 @@ bool Window::ProcessMessage()
 
 void Window::Finalize()
 {
-	::DestroyWindow(hwnd);
-	::UnregisterClassW(wc.lpszClassName, wc.hInstance);
+	::DestroyWindow(m_hwnd);
+	::UnregisterClassW(m_wc.lpszClassName, m_wc.hInstance);
 }
 
 void Window::SetEnableAlphaComposing(bool enable, HWND hwnd /*= nullptr*/)
 {
 	if (hwnd == nullptr)
-		hwnd = this->hwnd;
+		hwnd = this->m_hwnd;
 
-	enableAlphaComposing = enable;
+	m_enableAlphaComposing = enable;
 
-    BOOL composition;
-    if (FAILED(::DwmIsCompositionEnabled(&composition)) || !composition)
-        return;
+	BOOL composition;
+	if (FAILED(::DwmIsCompositionEnabled(&composition)) || !composition)
+		return;
 
-    if (enable)
-    {
-        BOOL opaque;
-        DWORD color;
-        if (_IsWindows8OrGreater() || (SUCCEEDED(::DwmGetColorizationColor(&color, &opaque)) && !opaque))
-        {
-            // ぼかし領域を指定（透明ウィンドウ＋背景ぼかし）
-            HRGN region = ::CreateRectRgn(0, 0, -1, -1);
-            DWM_BLURBEHIND bb = {};
-            bb.dwFlags = DWM_BB_ENABLE | DWM_BB_BLURREGION;
-            bb.hRgnBlur = region;
-            bb.fEnable = TRUE;
-            ::DwmEnableBlurBehindWindow(hwnd, &bb);
-            ::DeleteObject(region);
-        }
-        else
-        {
-            // Windows 7など：領域なしでぼかしのみ
-            DWM_BLURBEHIND bb = {};
-            bb.dwFlags = DWM_BB_ENABLE;
-            ::DwmEnableBlurBehindWindow(hwnd, &bb);
-        }
-    }
-    else
-    {
-        // 無効化
-        DWM_BLURBEHIND bb = {};
-        bb.dwFlags = DWM_BB_ENABLE;
-        bb.fEnable = FALSE;
-        ::DwmEnableBlurBehindWindow(hwnd, &bb);
-    }
+	if (enable)
+	{
+		BOOL opaque;
+		DWORD color;
+		if (_IsWindows8OrGreater() || (SUCCEEDED(::DwmGetColorizationColor(&color, &opaque)) && !opaque))
+		{
+			// ぼかし領域を指定（透明ウィンドウ＋背景ぼかし）
+			HRGN region = ::CreateRectRgn(0, 0, -1, -1);
+			DWM_BLURBEHIND bb = {};
+			bb.dwFlags = DWM_BB_ENABLE | DWM_BB_BLURREGION;
+			bb.hRgnBlur = region;
+			bb.fEnable = TRUE;
+			::DwmEnableBlurBehindWindow(hwnd, &bb);
+			::DeleteObject(region);
+		}
+	}
+	else
+	{
+		// 無効化
+		DWM_BLURBEHIND bb = {};
+		bb.dwFlags = DWM_BB_ENABLE;
+		bb.fEnable = FALSE;
+		::DwmEnableBlurBehindWindow(hwnd, &bb);
+	}
+}
+
+bool Window::CheckAlphaComposingSupport(HWND hwnd)
+{
+	OSVERSIONINFOEXW osvi = { sizeof(osvi), 6, 0 }; // Vista = 6.0
+	DWORDLONG conditionMask = 0;
+	VER_SET_CONDITION(conditionMask, VER_MAJORVERSION, VER_GREATER_EQUAL);
+	VER_SET_CONDITION(conditionMask, VER_MINORVERSION, VER_GREATER_EQUAL);
+
+	if (!VerifyVersionInfoW(&osvi, VER_MAJORVERSION | VER_MINORVERSION, conditionMask)) {
+		return false;
+	}
+
+	// DWMの有効状態をチェック
+	BOOL isEnabled = FALSE;
+	HRESULT hr = DwmIsCompositionEnabled(&isEnabled);
+	return SUCCEEDED(hr) && isEnabled;
 }
 
 LRESULT WINAPI Window::WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
@@ -117,7 +129,7 @@ LRESULT WINAPI Window::WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam
 	if(instance == nullptr)
 		return ::DefWindowProcW(hWnd, msg, wParam, lParam);
 
-	if (instance->customWndProc != nullptr && instance->customWndProc(hWnd, msg, wParam, lParam))
+	if (instance->m_customWndProc != nullptr && instance->m_customWndProc(hWnd, msg, wParam, lParam))
 		return true;
 
 	switch (msg)
@@ -128,13 +140,13 @@ LRESULT WINAPI Window::WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam
 		UINT height = (UINT)HIWORD(lParam);
 		if (width == 0 && height == 0)
 			return 0;
-		if (instance->windowWidth == width && instance->windowHeight == height)
+		if (instance->m_windowWidth == width && instance->m_windowHeight == height)
 			return 0;
 
 		if (DX11Graphics::Instance != nullptr)
 		{
-			instance->windowWidth = width;
-			instance->windowHeight = height;
+			instance->m_windowWidth = width;
+			instance->m_windowHeight = height;
 			DX11Graphics::Instance->Resize((UINT)LOWORD(lParam), (UINT)HIWORD(lParam));
 		}
 

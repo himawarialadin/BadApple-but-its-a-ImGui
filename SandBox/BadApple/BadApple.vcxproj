@@ -124,13 +124,13 @@
     <ClCompile Include="Scripts\Window\PlayerWindow.cpp">
       <DeploymentContent>false</DeploymentContent>
     </ClCompile>
-    <ClCompile Include="Scripts\Window\PopupWindow.cpp">
+    <ClCompile Include="Scripts\Window\StartupPopupWindow.cpp">
       <DeploymentContent>false</DeploymentContent>
     </ClCompile>
     <ClCompile Include="Scripts\Window\SettingWindow.cpp">
       <DeploymentContent>false</DeploymentContent>
     </ClCompile>
-    <ClCompile Include="Scripts\Window\StatusPopupWindow.cpp">
+    <ClCompile Include="Scripts\Window\StatusCheckPopupWindow.cpp">
       <DeploymentContent>false</DeploymentContent>
     </ClCompile>
     <ClCompile Include="Scripts\Window\VideoWindow.cpp">
@@ -171,13 +171,13 @@
     <ClInclude Include="Scripts\Window\PlayerWindow.h">
       <DeploymentContent>false</DeploymentContent>
     </ClInclude>
-    <ClInclude Include="Scripts\Window\PopupWindow.h">
+    <ClInclude Include="Scripts\Window\StartupPopupWindow.h">
       <DeploymentContent>false</DeploymentContent>
     </ClInclude>
     <ClInclude Include="Scripts\Window\SettingWindow.h">
       <DeploymentContent>false</DeploymentContent>
     </ClInclude>
-    <ClInclude Include="Scripts\Window\StatusPopupWindow.h">
+    <ClInclude Include="Scripts\Window\StatusCheckPopupWindow.h">
       <DeploymentContent>false</DeploymentContent>
     </ClInclude>
     <ClInclude Include="Scripts\Window\VideoWindow.h">

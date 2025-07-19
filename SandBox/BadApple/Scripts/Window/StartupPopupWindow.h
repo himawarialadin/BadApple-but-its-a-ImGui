@@ -4,11 +4,11 @@
 #include <wrl.h>
 
 struct ID3D11ShaderResourceView;
-class PopupWindow : public IWindow
+class StartupPopupWindow : public IWindow
 {
 public:
-	PopupWindow();
-	~PopupWindow();
+	StartupPopupWindow();
+	~StartupPopupWindow();
 	void Show() override;
 
 public:

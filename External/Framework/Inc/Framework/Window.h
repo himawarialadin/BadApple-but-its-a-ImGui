@@ -14,29 +14,32 @@ public:
 
 	void Finalize();
 	void SetEnableAlphaComposing(bool enable, HWND hwnd = nullptr);
+	bool IsAvailableAlphaComposing() const { return m_isAvailableAlphaComposing; }
 
 public:
 	static Window* GetInstance() { return instance; }
 
-	HWND							GetHWND()				const { return hwnd; }
-	WNDCLASSEXW const&	GetWindowClass()		const { return wc; }
-	UINT								GetWindowWidth()		const { return windowWidth; }
-	UINT								GetWindowHeight()	const { return windowHeight; }
-	bool 								IsEnableAlphaComposing() const { return enableAlphaComposing; }
-	void SetCustomWndProc(WNDPROC wndProc) { customWndProc = wndProc; }
+	HWND							GetHWND()				const { return m_hwnd; }
+	WNDCLASSEXW const&	GetWindowClass()		const { return m_wc; }
+	UINT								GetWindowWidth()		const { return m_windowWidth; }
+	UINT								GetWindowHeight()	const { return m_windowHeight; }
+	bool 								IsEnableAlphaComposing() const { return m_enableAlphaComposing; }
+	void SetCustomWndProc(WNDPROC wndProc) { m_customWndProc = wndProc; }
 
 private:
+	bool CheckAlphaComposingSupport(HWND hwnd);
 	static LRESULT WINAPI WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 private:
 	inline static Window* instance = nullptr;
 
-	HWND					hwnd;
-	WNDCLASSEXW	wc;
+	HWND					m_hwnd;
+	WNDCLASSEXW	m_wc;
 
-	WNDPROC				customWndProc;
-	UINT						windowWidth					= 1280;
-	UINT						windowHeight				= 800;
-	bool						enableAlphaComposing	= false;
+	WNDPROC				m_customWndProc;
+	UINT						m_windowWidth				= 1280;
+	UINT						m_windowHeight				= 800;
+	bool						m_enableAlphaComposing	= false;
+	bool						m_isAvailableAlphaComposing = false; // 透明ウィンドウが有効かどうか
 };
 

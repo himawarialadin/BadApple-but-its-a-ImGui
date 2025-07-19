@@ -16,8 +16,8 @@
 #include "Window/SettingWindow.h"
 #include "Window/VideoWindow.h"
 #include "Window/FPSWindow.h"
-#include "Window/PopupWindow.h"
-#include "Window/StatusPopupWindow.h"
+#include "Window/StartupPopupWindow.h"
+#include "Window/StatusCheckPopupWindow.h"
 
 #include "AnimationPlayer.h"
 #include "Constant.h"
@@ -80,8 +80,8 @@ private:
 
 			m_fpsWindow = CreateWindows<FPSWindow>();
 
-			auto popupWindow = CreateWindows<PopupWindow>();
-			auto statusPopup = CreateWindows<StatusPopupWindow>();
+			auto popupWindow = CreateWindows<StartupPopupWindow>();
+			auto statusPopup = CreateWindows<StatusCheckPopupWindow>();
 		}
 
 		//Load ini

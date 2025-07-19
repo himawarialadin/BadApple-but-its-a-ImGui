@@ -33,8 +33,8 @@ Bad Apple!!の影絵をImGui上で再現するという技術デモです。
 
 # インストール/使い方
 
-Releaseから最新のzipをダウンロードし、展開します。
-最初にAssetsフォルダにBad Apple!!の動画と音声ファイルをダウンロードしてください。
+Releaseから最新のzipをダウンロードし、展開します。  
+最初にAssetsフォルダにBad Apple!!の動画と音声ファイルをダウンロードしてください。  
 （ファイルがない場合はエラーが発生し、実行できません）  
 詳細はAssets/README.txtを参照してください。  
 
@@ -134,7 +134,7 @@ Animation settingsにあるModeを切り替えることで表示方法を変え�
     指示通りダウンロードします。  
     [https://www.fmod.com/download](https://www.fmod.com/download)
   
-    インストールが完了したら、Tools/Import_FMOD.ps1を実行し、
+    インストールが完了したら、Tools/Import_FMOD.ps1を実行し、  
     ダイアログからFMODをインストールした場所を選択してください。  
     自動でプロジェクトにインポートされます。
 
@@ -144,7 +144,7 @@ Animation settingsにあるModeを切り替えることで表示方法を変え�
     (opencv-4.12-windows.exe)  
     [https://github.com/opencv/opencv/releases/tag/4.12.0](https://github.com/opencv/opencv/releases/tag/4.12.0)
   
-    インストールが完了したら、Tools/Import_OpenCV.ps1を実行し、
+    インストールが完了したら、Tools/Import_OpenCV.ps1を実行し、  
     ダイアログからOpenCVをインストールした場所を選択してください。  
     自動でプロジェクトにインポートされます。
 

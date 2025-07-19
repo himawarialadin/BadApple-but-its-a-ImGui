@@ -1,4 +1,4 @@
-# Bad Apple!! but it’s ImGui (Windows)
+# Bad Apple!! but it's a ImGui (Windows)
 
 ![image.png](image.png)
 

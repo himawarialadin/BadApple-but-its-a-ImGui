@@ -3,13 +3,24 @@
 #include "VideoProcessingJob.h"
 #include <Math/Color.h>
 #include <Math/Math.h>
-#include <ImPlot/implot.h>
+#include <Math/Vector2.h>
 #include <ImGui/imgui.h>
 #include <ImGui/imgui_internal.h>
-#include <Utility/String.h>
 
+#include <Utility/String.h>
+#include <Math/Converter/ImVec.h>
 #include <format>
 #include <vector>
+
+const float				PlotSpacing			= 1.25f;
+const float				HistogramHeight	= 30.0f;
+const float				SeekBarThickness	= 2.25f;
+const float				DefaultItemSize		= 1000.0f;
+
+const Math::Color	LoadSegColor			= Math::Colors::GreenYellow;
+const Math::Color	SeekSegColor			= Math::Colors::Cyan;
+const Math::Color	UnloadedSegColor	= Math::Colors::Gray;
+const Math::Color	SeekBarColor			= Math::Colors::Red;
 
 static std::string TimeToString(float timeInSeconds)
 {
@@ -124,80 +135,72 @@ void PlayerWindow::DrawControls()
 
 void PlayerWindow::DrawStrem()
 {
-	const float PlotWidth				= 1.0f;
-	const float PlotSpacing			= 0.05f;
-	const float HistogramHeight	= 30.0f;
-	const float SeekBarThickness	= 0.1f;
 
-	const Math::Color LoedSegColor			= Math::Colors::GreenYellow;
-	const Math::Color SeekSegColor			= Math::Colors::Cyan;
-	const Math::Color UnloadedSegColor	= Math::Colors::Gray;
-	const Math::Color SeekBarColor			= Math::Colors::Red;
-
-	ImVec2 size = ImGui::CalcTextSize(m_totalTimeText.c_str());
-	size.x += ImGui::GetStyle().ItemSpacing.x;
-
-	auto	drawList = ImPlot::GetPlotDrawList();
+	//フレーム情報
 	auto&	videoJob					= m_player->GetVideoJob();
-	auto&	videoInfo					= m_player->GetVideoInfo();
 	auto&	jobDesc						= videoJob->GetDesc();
+	auto&	videoInfo					= m_player->GetVideoInfo();
 	U32Pair frameRange				= videoJob->GetCurrentFrameRange();
-
-	uint32_t maxSegmentCount	= videoInfo.frameCount / jobDesc.framePerSegment;
-	uint32_t seekPosSeg				= videoJob->GetSeekPosition() / jobDesc.framePerSegment;
-	uint32_t beginSeg					= frameRange.first / jobDesc.framePerSegment;
-	uint32_t endSeg						= frameRange.second / jobDesc.framePerSegment;
-
-	if (!ImPlot::BeginPlot("Stream2", { -size.x, HistogramHeight }, ImPlotFlags_CanvasOnly))
-		return;
-
-	ImPlot::PushStyleVar(ImPlotStyleVar_PlotPadding, { 0, 0 });
-	ImPlot::SetupAxes(nullptr, nullptr, ImPlotAxisFlags_NoDecorations | ImPlotAxisFlags_NoHighlight, ImPlotAxisFlags_NoDecorations | ImPlotAxisFlags_NoHighlight);
-	ImPlot::SetupAxesLimits(0, (maxSegmentCount + 1) + PlotSpacing * ( maxSegmentCount + 1), 1.0, 0, ImPlotCond_Always);
 	
-
-	float offsetX = 0.0f;
-	for(uint32_t i = 0; i <= maxSegmentCount; i++)
+	const uint32_t maxSegmentCount	= videoInfo.frameCount / jobDesc.framePerSegment + 1;
+	const uint32_t seekPosSeg				= videoJob->GetSeekPosition() / jobDesc.framePerSegment;
+	const uint32_t beginSeg					= frameRange.first / jobDesc.framePerSegment;
+	const uint32_t endSeg					= frameRange.second / jobDesc.framePerSegment;
+	
 	{
-		float segmentBeginX	= offsetX;
-		float segmentEndX		= offsetX + PlotWidth;
-		
-		ImPlot::PushPlotClipRect();
-
-		// セグメントの読み込み状態に応じて色を設定
+		ImVec2 size = ImGui::CalcTextSize(m_totalTimeText.c_str());
+		size.x += ImGui::GetStyle().ItemSpacing.x;
+		if (!ImGui::BeginChild("Stream2", { -size.x, HistogramHeight }, ImGuiChildFlags_Border))
 		{
-			ImVec2 pixelMin		= ImPlot::PlotToPixels(segmentBeginX, 0.0);
-			ImVec2 pixelMax	= ImPlot::PlotToPixels(segmentEndX, 1.0);
-
-			Math::Color color = UnloadedSegColor;
-
-			if (i >= beginSeg && i <= endSeg)
-				color = LoedSegColor; //読み込み済みのセグメント
-			if (i == seekPosSeg)
-				color = SeekSegColor; //現在のシーク位置のセグメント
-
-			drawList->AddRectFilled(pixelMin, pixelMax, color.ToABGR32ColorCode());
+			ImGui::EndChild();
+			return;
 		}
+	}
 
-		//シークバー
+	auto		drawList	= ImGui::GetForegroundDrawList();
+	auto&	style			= ImGui::GetStyle();
+	
+	const float					itemWidth				= ImGui::GetItemRectSize().x;
+	const Math::Vector2	windowMin			= Math::Cast<Math::Vector2>(ImGui::GetItemRectMin()) + Math::Vector2(style.ChildBorderSize, style.ChildBorderSize);
+	const Math::Vector2	windowMax			= windowMin + Math::Vector2(itemWidth, HistogramHeight) - Math::Vector2(style.ChildBorderSize, style.ChildBorderSize);
+	const float					plotSpacing			= PlotSpacing * (itemWidth / DefaultItemSize);
+	const float					seekBarThickness	= SeekBarThickness * (itemWidth / DefaultItemSize);
+	const float					plotWidth				= (itemWidth - (plotSpacing * (maxSegmentCount - 1))) / (maxSegmentCount);
+
+	// セグメントの読み込み状態に応じて色を設定
+	float offsetX = 0.0f;
+	for(uint32_t i = 0; i < maxSegmentCount; i++)
+	{
+		Math::Vector2 segmentBegin	= Math::Vector2{ windowMin.x + offsetX , windowMin.y };
+		Math::Vector2 segmentEnd		= Math::Vector2{ segmentBegin.x + plotWidth, windowMax.y };
+		Math::Color color = UnloadedSegColor;
+		
+		if (i >= beginSeg && i <= endSeg)
+			color = LoadSegColor; //読み込み済みのセグメント
+		if (i == seekPosSeg)
+			color = SeekSegColor; //現在のシーク位置のセグメント
+		
+		drawList->AddRectFilled(Math::Cast<ImVec2>(segmentBegin), Math::Cast<ImVec2>(segmentEnd), color.ToABGR32ColorCode());
+		offsetX += plotWidth + plotSpacing;
+
+
 		if (i == seekPosSeg)
 		{
-			uint32_t	seekPosBeginFrame	= seekPosSeg * jobDesc.framePerSegment;
-			uint32_t	seekPosEndFrame		= std::min((seekPosSeg + 1) * jobDesc.framePerSegment, videoInfo.frameCount);
-			float			positionX					= Math::Remap(static_cast<float>(videoJob->GetSeekPosition()), 
-				static_cast<float>(seekPosBeginFrame), static_cast<float>(seekPosEndFrame),
-				segmentBeginX, segmentEndX);
+			uint32_t seekPosition					= videoJob->GetSeekPosition();
+			uint32_t segmentBeginFrame		= i * jobDesc.framePerSegment;
+			uint32_t segmentEndFrame		= std::min(segmentBeginFrame + jobDesc.framePerSegment, videoInfo.frameCount);
 
-			ImVec2 pixelMin		= ImPlot::PlotToPixels(positionX - SeekBarThickness / 2.0f, 0.0);
-			ImVec2 pixelMax	= ImPlot::PlotToPixels(positionX + SeekBarThickness / 2.0f, 1.0);
-			drawList->AddRectFilled(pixelMin, pixelMax, SeekBarColor.ToABGR32ColorCode());
+			float positionX = Math::Remap(static_cast<float>(seekPosition),
+				static_cast<float>(segmentBeginFrame), static_cast<float>(segmentEndFrame),
+				segmentBegin.x, segmentEnd.x);
+
+			Math::Vector2 seekBarBegin	= Math::Vector2{ positionX - seekBarThickness / 2.0f,  windowMin.y };
+			Math::Vector2 seekBarEnd		= Math::Vector2{ positionX + seekBarThickness / 2.0f, windowMax.y };
+			drawList->AddRectFilled(Math::Cast<ImVec2>(seekBarBegin), Math::Cast<ImVec2>(seekBarEnd), SeekBarColor.ToABGR32ColorCode());
 		}
-		ImPlot::PopPlotClipRect();
-
-		offsetX += PlotWidth + PlotSpacing;
 	}
-	ImPlot::PopStyleVar();
 
-	ImPlot::EndPlot();
+
+	ImGui::EndChild();
 	
 }

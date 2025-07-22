@@ -99,11 +99,21 @@ void SettingWindow::ShowAnimationSettings()
 	if(ImGui::Checkbox("Transparent window", &isAlphaComposing))
 		window->SetEnableAlphaComposing(isAlphaComposing);
 	ImGui::EndDisabled();
+
+	const LONG HideTitleBarStyle = WS_CAPTION | WS_THICKFRAME;
+	bool showTitleBar = (window->GetStyle() & HideTitleBarStyle) != 0;
+	if(ImGui::Checkbox("Show title bar", &showTitleBar))
+	{
+		if (showTitleBar)
+			window->AddStyle(HideTitleBarStyle);
+		else
+			window->RemoveStyle(HideTitleBarStyle);
+	}
 }
 
 void SettingWindow::ShowProcessSettings()
 {
-	ImGui::TextColored(Math::Cast<ImVec4>(Math::Colors::Red), "High load warning on change !!");
+	ImGui::TextColored(Math::Cast<ImVec4>(Math::Colors::Red), "High load warning on change!!");
 	ImGui::Spacing();
 
 	auto& job = m_player->GetVideoJob();

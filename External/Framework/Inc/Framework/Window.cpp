@@ -107,6 +107,28 @@ void Window::SetEnableAlphaComposing(bool enable, HWND hwnd /*= nullptr*/)
 	}
 }
 
+void Window::AddStyle(LONG flags)
+{
+	LONG style = GetWindowLong(m_hwnd, GWL_STYLE);
+	style |= flags;
+
+	SetWindowLong(m_hwnd, GWL_STYLE, style);
+	SetWindowPos(m_hwnd, nullptr, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE | SWP_NOZORDER | SWP_FRAMECHANGED);
+}
+
+void Window::RemoveStyle(LONG flags)
+{
+	LONG style = GetWindowLong(m_hwnd, GWL_STYLE);
+	style &= ~flags;
+	SetWindowLong(m_hwnd, GWL_STYLE, style);
+	SetWindowPos(m_hwnd, nullptr, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE | SWP_NOZORDER | SWP_FRAMECHANGED);
+}
+
+LONG Window::GetStyle() const
+{
+	return GetWindowLong(m_hwnd, GWL_STYLE);
+}
+
 bool Window::CheckAlphaComposingSupport(HWND hwnd)
 {
 	OSVERSIONINFOEXW osvi = { sizeof(osvi), 6, 0 }; // Vista = 6.0

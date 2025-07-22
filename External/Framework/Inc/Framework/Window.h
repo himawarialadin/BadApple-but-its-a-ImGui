@@ -14,6 +14,10 @@ public:
 
 	void Finalize();
 	void SetEnableAlphaComposing(bool enable, HWND hwnd = nullptr);
+	void AddStyle(LONG flags);
+	void RemoveStyle(LONG flags);
+
+	LONG GetStyle() const;
 	bool IsAvailableAlphaComposing() const { return m_isAvailableAlphaComposing; }
 
 public:
